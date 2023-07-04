@@ -1,47 +1,38 @@
-from flask import Flask,request,render_template,jsonify
-from src.pipeline.prediction_pipeline import CustomData,PredictPipeline
+from flask import Flask, request
+
+app= Flask(__name__)
+
+#Route
+
+@app.route("/")
+def welcome():
+    return "Hello world"
 
 
-application=Flask(__name__)
+@app.route('/aboutus')
+def aboutus():
+    return "We are ineuron"
 
-app=application
+@app.route('/demo',methods=['POST'])
+def math_operation():
+    if(request.method=='POST'):
+        operation= request.json['operation']
+        num1= request.json['num1']
+        num2= request.json['num2']
+        result=num1 + num2
 
+        return "The operation is {} and the result is {}".format(operation,result)
 
+@app.route('/multiply',methods=['POST'])
+def multiply_operation():
+    if(request.method=='POST'):
+        operation= request.json['operation']
+        num1= request.json['num1']
+        num2= request.json['num2']
+        result=num1 * num2
 
-@app.route('/')
-def home_page():
-    return render_template('index.html')
-
-@app.route('/predict',methods=['GET','POST'])
-
-def predict_datapoint():
-    if request.method=='GET':
-        return render_template('form.html')
-    
-    else:
-        data=CustomData(
-            carat=float(request.form.get('carat')),
-            depth = float(request.form.get('depth')),
-            table = float(request.form.get('table')),
-            x = float(request.form.get('x')),
-            y = float(request.form.get('y')),
-            z = float(request.form.get('z')),
-            cut = request.form.get('cut'),
-            color= request.form.get('color'),
-            clarity = request.form.get('clarity')
-        )
-        final_new_data=data.get_data_as_dataframe()
-        predict_pipeline=PredictPipeline()
-        pred=predict_pipeline.predict(final_new_data)
-
-        results=round(pred[0],2)
-
-        return render_template('results.html',final_result=results)
-
-
-
-
-
+        return "The operation is {} and the result is {}".format(operation,result)
 
 if __name__=="__main__":
-    app.run(host='0.0.0.0',debug=True)
+    app.run(host="0.0.0.0", port=5001)
+    
