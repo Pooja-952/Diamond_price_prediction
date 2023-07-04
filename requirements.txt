@@ -1,8 +1,6 @@
 Flask
 Numpy
 Pandas
-seaborn
-matplotlib
 scikit-learn
-
-
+seaborn
+-e .
