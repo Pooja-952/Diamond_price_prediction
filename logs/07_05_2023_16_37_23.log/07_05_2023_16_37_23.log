@@ -11,3 +11,7 @@
 [ 2023-07-05 18:50:31,696 ] 187 werkzeug - INFO - 172.18.0.2 - - [05/Jul/2023 18:50:31] "[36mGET /predict?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
 [ 2023-07-05 18:51:19,869 ] 67 root - INFO - Dataframe Gathered
 [ 2023-07-05 18:51:19,936 ] 187 werkzeug - INFO - 172.18.0.2 - - [05/Jul/2023 18:51:19] "POST /predict HTTP/1.1" 200 -
+[ 2023-07-05 18:57:08,550 ] 187 werkzeug - INFO - 172.18.0.2 - - [05/Jul/2023 18:57:08] "GET /predict HTTP/1.1" 200 -
+[ 2023-07-05 18:57:20,713 ] 187 werkzeug - INFO - 172.18.0.2 - - [05/Jul/2023 18:57:20] "GET /predict HTTP/1.1" 200 -
+[ 2023-07-05 19:01:19,368 ] 67 root - INFO - Dataframe Gathered
+[ 2023-07-05 19:01:19,376 ] 187 werkzeug - INFO - 172.18.0.2 - - [05/Jul/2023 19:01:19] "POST /predict HTTP/1.1" 200 -
